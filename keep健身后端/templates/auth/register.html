@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}注册 - Keep健身{% endblock %}
+
+{% block login_content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm mt-5">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">
+                    <i class="bi bi-person-plus-fill text-primary"></i> 注册新账号
+                </h2>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">用户名 *</label>
+                        <input type="text" class="form-control" id="username" name="username" 
+                               required autofocus placeholder="请输入用户名">
+                        <div class="form-text">4-20个字符,字母数字下划线</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">邮箱 *</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               required placeholder="example@email.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">密码 *</label>
+                        <input type="password" class="form-control" id="password" name="password" 
+                               required placeholder="请输入密码">
+                        <div class="form-text">至少6个字符</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password2" class="form-label">确认密码 *</label>
+                        <input type="password" class="form-control" id="password2" name="password2" 
+                               required placeholder="请再次输入密码">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mb-3">
+                        <i class="bi bi-check-circle-fill"></i> 注册
+                    </button>
+                    <div class="text-center">
+                        <span class="text-muted">已有账号?</span>
+                        <a href="{{ url_for('auth.login') }}">立即登录</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

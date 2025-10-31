@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep健身后端 - 状态说明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px;
+        }
+        .status-box {
+            background: #f8f9fa;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .status-box.warning {
+            border-left-color: #ffc107;
+            background: #fff3cd;
+        }
+        .status-box.success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+        .status-box h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid #667eea;
+        }
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-card li {
+            padding: 5px 0;
+            color: #666;
+        }
+        .info-card li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .solution {
+            background: #e7f3ff;
+            border: 2px solid #0d6efd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .solution h3 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+        .solution ol {
+            padding-left: 20px;
+        }
+        .solution li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        code {
+            background: #f1f3f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏋️ Keep健身后端</h1>
+            <p>后端服务状态说明</p>
+        </div>
+        
+        <div class="content">
+            <div class="status-box">
+                <h2>❌ 当前状态：无法启动</h2>
+                <p><strong>问题原因：</strong>MySQL数据库服务器未运行</p>
+                <p>Keep健身后端需要连接MySQL数据库才能正常工作。</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📊 系统信息</h3>
+                    <ul>
+                        <li>Python 3.9.5</li>
+                        <li>Flask 2.3.3</li>
+                        <li>SQLAlchemy 2.0.21</li>
+                        <li>Pydantic 2.5.0</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>📦 API模块</h3>
+                    <ul>
+                        <li>认证系统 (2个API)</li>
+                        <li>训练计划 (8个API)</li>
+                        <li>运动记录 (18个API)</li>
+                        <li>社交系统 (30个API)</li>
+                        <li>数据分析 (11个API)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔧 数据库配置</h3>
+                    <ul>
+                        <li>主机: localhost</li>
+                        <li>端口: 3306</li>
+                        <li>数据库: keep_fitness</li>
+                        <li>用户: root</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="solution">
+                <h3>💡 解决方案</h3>
+                <ol>
+                    <li>
+                        <strong>安装MySQL服务器</strong><br>
+                        从 <a href="https://dev.mysql.com/downloads/mysql/" target="_blank">MySQL官网</a> 下载并安装MySQL Community Server
+                    </li>
+                    <li>
+                        <strong>启动MySQL服务</strong><br>
+                        在Windows服务中启动MySQL服务，或使用命令: <code>net start mysql</code>
+                    </li>
+                    <li>
+                        <strong>创建数据库</strong><br>
+                        登录MySQL后执行: <code>CREATE DATABASE keep_fitness CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code>
+                    </li>
+                    <li>
+                        <strong>初始化数据表</strong><br>
+                        在项目目录运行: <code>python utils/init_db.py create</code>
+                    </li>
+                    <li>
+                        <strong>启动后端服务</strong><br>
+                        运行: <code>python app.py</code>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="status-box warning">
+                <h2>⚠️ 诊断结果</h2>
+                <p>已运行完整系统诊断（<code>python diagnose.py</code>）：</p>
+                <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
+                    <li>✅ Python环境正常</li>
+                    <li>✅ 所有依赖包已安装</li>
+                    <li>✅ 环境配置文件正常</li>
+                    <li>❌ 数据库连接失败 (MySQL未运行)</li>
+                    <li>✅ 应用代码正常 (可导入)</li>
+                </ul>
+            </div>
+
+            <div class="status-box success">
+                <h2>✅ 已完成的工作</h2>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✅ 安装 pydantic==2.5.0</li>
+                    <li>✅ 修复导入错误 (middleware.auth)</li>
+                    <li>✅ 修复SQLAlchemy导入问题</li>
+                    <li>✅ 创建诊断工具</li>
+                    <li>✅ 创建演示模式脚本</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Keep健身后端 v1.0.0 | 69+ REST API接口</p>
+            <p style="margin-top: 5px;">一旦MySQL启动，访问 <code>http://localhost:5000/</code> 即可使用</p>
+        </div>
+    </div>
+</body>
+</html>

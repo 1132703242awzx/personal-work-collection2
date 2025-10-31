@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}体重趋势 - Keep健身{% endblock %}
+{% block page_title %}体重趋势分析{% endblock %}
+
+{% block page_content %}
+<div class="chart-container mb-4">
+    <h5 class="mb-4"><i class="bi bi-graph-up"></i> 体重变化趋势(90天)</h5>
+    <canvas id="weightTrendChart" height="80"></canvas>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="chart-container">
+            <h5 class="mb-4"><i class="bi bi-droplet-fill"></i> 体脂率变化</h5>
+            <canvas id="bodyFatChart"></canvas>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="chart-container">
+            <h5 class="mb-4"><i class="bi bi-heart-pulse"></i> BMI变化</h5>
+            <canvas id="bmiChart"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 体重趋势
+fetch('/analytics/api/body-data-trend?days=90')
+    .then(response => response.json())
+    .then(data => {
+        const ctx = document.getElementById('weightTrendChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: '体重(kg)',
+                    data: data.weight,
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true
+            }
+        });
+        
+        // 体脂率
+        if (data.body_fat && data.body_fat.length > 0) {
+            const fatCtx = document.getElementById('bodyFatChart').getContext('2d');
+            new Chart(fatCtx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: '体脂率(%)',
+                        data: data.body_fat,
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+        }
+        
+        // BMI
+        if (data.bmi && data.bmi.length > 0) {
+            const bmiCtx = document.getElementById('bmiChart').getContext('2d');
+            new Chart(bmiCtx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'BMI',
+                        data: data.bmi,
+                        borderColor: '#F59E0B',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

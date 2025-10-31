@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}身体数据 - Keep健身{% endblock %}
+{% block page_title %}身体数据{% endblock %}
+
+{% block page_content %}
+<div class="row mb-3">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+        <div>
+            <p class="text-muted mb-0">共 {{ records|length }} 条记录</p>
+        </div>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBodyRecordModal">
+            <i class="bi bi-plus-circle"></i> 添加身体数据
+        </button>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-lg-8">
+        <div class="chart-container">
+            <h5 class="mb-4"><i class="bi bi-graph-up"></i> 体重变化趋势(90天)</h5>
+            <canvas id="weightTrendChart" height="80"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        {% if records %}
+        {% set latest = records[0] %}
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h6 class="text-muted mb-3">最新数据</h6>
+                <dl class="row mb-0">
+                    <dt class="col-6">记录日期:</dt>
+                    <dd class="col-6">{{ latest.record_date }}</dd>
+                    <dt class="col-6">体重:</dt>
+                    <dd class="col-6"><strong class="text-primary">{{ latest.weight }} kg</strong></dd>
+                    {% if latest.body_fat %}
+                    <dt class="col-6">体脂率:</dt>
+                    <dd class="col-6">{{ latest.body_fat }}%</dd>
+                    {% endif %}
+                    {% if current_user.height %}
+                    <dt class="col-6">BMI:</dt>
+                    <dd class="col-6">
+                        {% set bmi = (latest.weight / ((current_user.height / 100) ** 2)) | round(1) %}
+                        <span class="badge {% if bmi < 18.5 %}bg-info{% elif bmi < 24 %}bg-success{% elif bmi < 28 %}bg-warning{% else %}bg-danger{% endif %}">
+                            {{ bmi }}
+                        </span>
+                    </dd>
+                    {% endif %}
+                </dl>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="data-table">
+    {% if records %}
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>日期</th>
+                    <th>体重(kg)</th>
+                    <th>体脂率(%)</th>
+                    <th>肌肉量(kg)</th>
+                    <th>水分(%)</th>
+                    <th>BMI</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td><i class="bi bi-calendar3"></i> {{ record.record_date }}</td>
+                    <td><strong>{{ record.weight }}</strong></td>
+                    <td>{{ record.body_fat or '-' }}</td>
+                    <td>{{ record.muscle_mass or '-' }}</td>
+                    <td>{{ record.water_content or '-' }}</td>
+                    <td>
+                        {% if current_user.height %}
+                        {% set bmi = (record.weight / ((current_user.height / 100) ** 2)) | round(1) %}
+                        {{ bmi }}
+                        {% else %}
+                        -
+                        {% endif %}
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="bi bi-inbox" style="font-size: 4rem; color: #D1D5DB;"></i>
+        <h4 class="mt-3 text-muted">还没有身体数据</h4>
+        <p class="text-muted">开始记录您的身体变化吧!</p>
+    </div>
+    {% endif %}
+</div>
+
+<!-- 添加身体数据模态框 -->
+<div class="modal fade" id="addBodyRecordModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加身体数据</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="{{ url_for('workout.add_body_record') }}">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="record_date" class="form-label">记录日期 *</label>
+                        <input type="date" class="form-control" id="record_date" 
+                               name="record_date" value="{{ now.strftime('%Y-%m-%d') }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="weight" class="form-label">体重(kg) *</label>
+                        <input type="number" class="form-control" id="weight" 
+                               name="weight" step="0.1" min="0" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="body_fat" class="form-label">体脂率(%)</label>
+                        <input type="number" class="form-control" id="body_fat" 
+                               name="body_fat" step="0.1" min="0" max="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="muscle_mass" class="form-label">肌肉量(kg)</label>
+                        <input type="number" class="form-control" id="muscle_mass" 
+                               name="muscle_mass" step="0.1" min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="water_content" class="form-label">水分(%)</label>
+                        <input type="number" class="form-control" id="water_content" 
+                               name="water_content" step="0.1" min="0" max="100">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+fetch('/analytics/api/body-data-trend?days=90')
+    .then(response => response.json())
+    .then(data => {
+        const ctx = document.getElementById('weightTrendChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: '体重(kg)',
+                    data: data.weight,
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
