@@ -1,0 +1,7 @@
+﻿{
+  "extends": ["react-app"],
+  "rules": {
+    "unicode-bom": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+  }
+}

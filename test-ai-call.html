@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 调用测试</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+        }
+        .container {
+            background: #16213e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #00d9ff;
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #0f172a;
+            border-radius: 6px;
+            border-left: 4px solid #00d9ff;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .success { border-left-color: #10b981; }
+        .error { border-left-color: #ef4444; }
+        .info { border-left-color: #3b82f6; }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI 调用测试工具</h1>
+        <p>此工具用于测试 DeepSeek API 是否正常工作</p>
+        
+        <div style="margin: 20px 0;">
+            <button onclick="testEnvVariables()">1. 检查环境变量</button>
+            <button onclick="testSimpleCall()">2. 测试简单调用</button>
+            <button onclick="testFullAnalysis()">3. 测试完整分析</button>
+            <button onclick="clearResults()">清空结果</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const API_KEY = 'sk-f0f643076ea84c74af8c96b20552d952';
+        const API_ENDPOINT = 'https://api.deepseek.com/v1/chat/completions';
+
+        function log(message, type = 'info') {
+            const resultDiv = document.getElementById('result');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : 'info';
+            resultDiv.innerHTML += `<div class="result ${className}">[${timestamp}] ${message}</div>`;
+            resultDiv.scrollTop = resultDiv.scrollHeight;
+        }
+
+        function clearResults() {
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function testEnvVariables() {
+            log('🔍 检查环境变量配置...', 'info');
+            
+            const checks = {
+                'VITE_AI_PROVIDER': import.meta.env?.VITE_AI_PROVIDER || '未设置',
+                'VITE_AI_API_KEY': import.meta.env?.VITE_AI_API_KEY ? 
+                    import.meta.env.VITE_AI_API_KEY.substring(0, 8) + '...' : '未设置',
+                'VITE_AI_MODEL': import.meta.env?.VITE_AI_MODEL || '未设置',
+            };
+
+            log('环境变量状态:\n' + JSON.stringify(checks, null, 2), 'info');
+
+            if (!import.meta.env?.VITE_AI_PROVIDER || !import.meta.env?.VITE_AI_API_KEY) {
+                log('❌ 环境变量未正确配置! 请检查 .env.local 文件', 'error');
+            } else {
+                log('✅ 环境变量配置正确', 'success');
+            }
+        }
+
+        async function testSimpleCall() {
+            log('🚀 开始测试简单 API 调用...', 'info');
+            
+            const requestBody = {
+                model: 'deepseek-chat',
+                messages: [
+                    {
+                        role: 'user',
+                        content: '你好,请回复"测试成功"'
+                    }
+                ],
+                max_tokens: 20,
+                temperature: 0.7
+            };
+
+            log('📤 发送请求:\n' + JSON.stringify(requestBody, null, 2), 'info');
+
+            try {
+                const startTime = Date.now();
+                
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${API_KEY}`
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const duration = Date.now() - startTime;
+                log(`📨 收到响应 (耗时: ${duration}ms)`, 'info');
+                log(`状态: ${response.status} ${response.statusText}`, 'info');
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    log('❌ API 调用失败:\n' + JSON.stringify(errorData, null, 2), 'error');
+                    return;
+                }
+
+                const data = await response.json();
+                log('✅ API 调用成功!', 'success');
+                log('响应内容:\n' + JSON.stringify(data, null, 2), 'success');
+                log(`💬 AI 回复: ${data.choices[0].message.content}`, 'success');
+                log(`📊 Token 使用: ${data.usage.total_tokens} tokens (输入: ${data.usage.prompt_tokens}, 输出: ${data.usage.completion_tokens})`, 'success');
+                log(`💰 预估成本: ¥${(data.usage.total_tokens * 0.001 * 0.001).toFixed(6)}`, 'success');
+
+            } catch (error) {
+                log('❌ 请求失败: ' + error.message, 'error');
+                log('错误详情:\n' + error.stack, 'error');
+            }
+        }
+
+        async function testFullAnalysis() {
+            log('🔬 开始测试完整项目分析...', 'info');
+            
+            const requestBody = {
+                model: 'deepseek-chat',
+                messages: [
+                    {
+                        role: 'system',
+                        content: '你是一位资深的软件架构师和技术顾问，拥有 15 年以上的项目经验。'
+                    },
+                    {
+                        role: 'user',
+                        content: `我需要开发一个"在线教育平台"项目。
+
+项目描述: 提供在线课程、直播教学、作业提交等功能
+
+请简要给出技术建议(100字内)。`
+                    }
+                ],
+                max_tokens: 500,
+                temperature: 0.7
+            };
+
+            log('📤 发送完整分析请求...', 'info');
+
+            try {
+                const startTime = Date.now();
+                
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${API_KEY}`
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const duration = Date.now() - startTime;
+                log(`📨 收到响应 (耗时: ${duration}ms)`, 'info');
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    log('❌ API 调用失败:\n' + JSON.stringify(errorData, null, 2), 'error');
+                    return;
+                }
+
+                const data = await response.json();
+                log('✅ 完整分析成功!', 'success');
+                log(`💬 AI 分析结果:\n${data.choices[0].message.content}`, 'success');
+                log(`📊 Token 使用: ${data.usage.total_tokens} tokens`, 'success');
+                log(`💰 预估成本: ¥${(data.usage.total_tokens * 0.001 * 0.001).toFixed(6)}`, 'success');
+
+            } catch (error) {
+                log('❌ 请求失败: ' + error.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
