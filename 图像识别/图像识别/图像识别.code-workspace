@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../opencv4.10_vs2022"
+		}
+	],
+	"settings": {}
+}

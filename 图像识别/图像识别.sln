@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "图像识别", "图像识别\图像识别.vcxproj", "{83530610-BED3-4918-9CBC-0053EA56A63F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Debug|x64.ActiveCfg = Debug|x64
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Debug|x64.Build.0 = Debug|x64
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Debug|x86.ActiveCfg = Debug|Win32
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Debug|x86.Build.0 = Debug|Win32
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Release|x64.ActiveCfg = Release|x64
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Release|x64.Build.0 = Release|x64
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Release|x86.ActiveCfg = Release|Win32
+		{83530610-BED3-4918-9CBC-0053EA56A63F}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E5F66F7-F87D-47D7-B1D1-C871AB9C9594}
+	EndGlobalSection
+EndGlobal
