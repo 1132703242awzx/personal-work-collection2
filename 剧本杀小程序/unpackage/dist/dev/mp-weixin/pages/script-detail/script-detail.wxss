@@ -1,0 +1,360 @@
+
+.page.data-v-2a4ad6a4 {
+	background-color: #f8f9fa;
+	padding-bottom: 120rpx;
+}
+
+/* 封面区域 */
+.cover-section.data-v-2a4ad6a4 {
+	position: relative;
+	height: 500rpx;
+}
+.cover-image.data-v-2a4ad6a4 {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.cover-overlay.data-v-2a4ad6a4 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+	padding: 80rpx 30rpx 30rpx;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.script-info.data-v-2a4ad6a4 {
+	flex: 1;
+}
+.script-name.data-v-2a4ad6a4 {
+	font-size: 48rpx;
+	font-weight: bold;
+	display: block;
+	margin-bottom: 20rpx;
+}
+.script-tags.data-v-2a4ad6a4 {
+	margin-bottom: 15rpx;
+}
+.tag.data-v-2a4ad6a4 {
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.2);
+	padding: 8rpx 16rpx;
+	border-radius: 16rpx;
+	font-size: 22rpx;
+	margin-right: 15rpx;
+}
+.script-rating.data-v-2a4ad6a4 {
+	display: flex;
+	align-items: center;
+}
+.rating-text.data-v-2a4ad6a4 {
+	font-size: 32rpx;
+	font-weight: bold;
+	margin-right: 15rpx;
+}
+.rating-stars.data-v-2a4ad6a4 {
+	font-size: 20rpx;
+	margin-right: 15rpx;
+}
+.rating-count.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+	opacity: 0.8;
+}
+.price-info.data-v-2a4ad6a4 {
+	text-align: center;
+	min-width: 120rpx;
+}
+.price-label.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+	opacity: 0.8;
+	display: block;
+	margin-bottom: 10rpx;
+}
+.price-value.data-v-2a4ad6a4 {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+}
+.price-symbol.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+}
+.price-number.data-v-2a4ad6a4 {
+	font-size: 42rpx;
+	font-weight: bold;
+}
+.price-unit.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+}
+
+/* 基本信息 */
+.info-section.data-v-2a4ad6a4 {
+	background: white;
+	margin: 20rpx;
+	border-radius: 20rpx;
+	padding: 30rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.info-grid.data-v-2a4ad6a4 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30rpx;
+}
+.info-item.data-v-2a4ad6a4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+.info-icon.data-v-2a4ad6a4 {
+	font-size: 40rpx;
+	margin-bottom: 15rpx;
+}
+.info-label.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+	color: #999;
+	margin-bottom: 10rpx;
+}
+.info-value.data-v-2a4ad6a4 {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+/* 通用区域样式 */
+.desc-section.data-v-2a4ad6a4, .roles-section.data-v-2a4ad6a4, .sessions-section.data-v-2a4ad6a4, .reviews-section.data-v-2a4ad6a4 {
+	background: white;
+	margin: 20rpx;
+	border-radius: 20rpx;
+	padding: 30rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.section-title.data-v-2a4ad6a4 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30rpx;
+	padding-bottom: 20rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.title-text.data-v-2a4ad6a4 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+}
+.more-sessions.data-v-2a4ad6a4, .review-count.data-v-2a4ad6a4 {
+	font-size: 26rpx;
+	color: #667eea;
+}
+
+/* 剧本介绍 */
+.desc-content.data-v-2a4ad6a4 {
+	line-height: 1.8;
+}
+.desc-text.data-v-2a4ad6a4 {
+	font-size: 28rpx;
+	color: #666;
+}
+
+/* 角色介绍 */
+.roles-list.data-v-2a4ad6a4 {
+	gap: 30rpx;
+}
+.role-item.data-v-2a4ad6a4 {
+	display: flex;
+	margin-bottom: 30rpx;
+	padding-bottom: 30rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.role-item.data-v-2a4ad6a4:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.role-avatar.data-v-2a4ad6a4 {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 60rpx;
+	margin-right: 30rpx;
+	object-fit: cover;
+}
+.role-info.data-v-2a4ad6a4 {
+	flex: 1;
+}
+.role-name.data-v-2a4ad6a4 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+	margin-bottom: 15rpx;
+}
+.role-desc.data-v-2a4ad6a4 {
+	font-size: 26rpx;
+	color: #666;
+	line-height: 1.6;
+	display: block;
+	margin-bottom: 20rpx;
+}
+.role-tags.data-v-2a4ad6a4 {
+	display: flex;
+}
+.role-tag.data-v-2a4ad6a4 {
+	background: #f0f0f0;
+	color: #666;
+	font-size: 22rpx;
+	padding: 6rpx 12rpx;
+	border-radius: 12rpx;
+	margin-right: 15rpx;
+}
+
+/* 今日场次 */
+.sessions-list.data-v-2a4ad6a4 {
+	gap: 20rpx;
+}
+.session-item.data-v-2a4ad6a4 {
+	display: flex;
+	align-items: center;
+	padding: 25rpx;
+	background: #f8f9fa;
+	border-radius: 15rpx;
+	margin-bottom: 20rpx;
+	transition: all 0.3s;
+}
+.session-item.data-v-2a4ad6a4:last-child {
+	margin-bottom: 0;
+}
+.session-item.disabled.data-v-2a4ad6a4 {
+	opacity: 0.6;
+}
+.session-time.data-v-2a4ad6a4 {
+	text-align: center;
+	margin-right: 30rpx;
+	min-width: 100rpx;
+}
+.time-text.data-v-2a4ad6a4 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+}
+.time-label.data-v-2a4ad6a4 {
+	font-size: 22rpx;
+	color: #999;
+}
+.session-info.data-v-2a4ad6a4 {
+	flex: 1;
+}
+.session-players.data-v-2a4ad6a4 {
+	font-size: 28rpx;
+	color: #333;
+	display: block;
+	margin-bottom: 8rpx;
+}
+.session-status.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+	color: #ff6b6b;
+}
+.session-status.available.data-v-2a4ad6a4 {
+	color: #28a745;
+}
+.session-price.data-v-2a4ad6a4 {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #667eea;
+}
+
+/* 用户评价 */
+.reviews-list.data-v-2a4ad6a4 {
+	gap: 30rpx;
+}
+.review-item.data-v-2a4ad6a4 {
+	margin-bottom: 30rpx;
+	padding-bottom: 30rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.review-item.data-v-2a4ad6a4:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.review-header.data-v-2a4ad6a4 {
+	display: flex;
+	margin-bottom: 20rpx;
+}
+.user-avatar.data-v-2a4ad6a4 {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 40rpx;
+	margin-right: 20rpx;
+	object-fit: cover;
+}
+.user-info.data-v-2a4ad6a4 {
+	flex: 1;
+}
+.user-name.data-v-2a4ad6a4 {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+	margin-bottom: 10rpx;
+}
+.review-rating.data-v-2a4ad6a4 {
+	display: flex;
+	align-items: center;
+}
+.stars.data-v-2a4ad6a4 {
+	font-size: 20rpx;
+	margin-right: 15rpx;
+}
+.review-date.data-v-2a4ad6a4 {
+	font-size: 24rpx;
+	color: #999;
+}
+.review-content.data-v-2a4ad6a4 {
+	font-size: 26rpx;
+	color: #666;
+	line-height: 1.6;
+}
+
+/* 底部操作栏 */
+.bottom-bar.data-v-2a4ad6a4 {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: white;
+	padding: 20rpx 30rpx;
+	border-top: 1rpx solid #f0f0f0;
+	box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.action-buttons.data-v-2a4ad6a4 {
+	display: flex;
+	gap: 20rpx;
+}
+.btn-secondary.data-v-2a4ad6a4, .btn-primary.data-v-2a4ad6a4 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 25rpx;
+	border-radius: 25rpx;
+	font-size: 28rpx;
+	transition: all 0.3s;
+}
+.btn-secondary.data-v-2a4ad6a4 {
+	background: #f8f9fa;
+	color: #666;
+	border: 1rpx solid #dee2e6;
+	min-width: 120rpx;
+}
+.btn-primary.data-v-2a4ad6a4 {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	flex: 1;
+}
+.btn-icon.data-v-2a4ad6a4 {
+	margin-right: 8rpx;
+	font-size: 24rpx;
+}
+

@@ -1,0 +1,320 @@
+
+.page.data-v-53b51f20 {
+	background-color: #f8f9fa;
+	padding-bottom: 120rpx;
+}
+
+/* 通用区域样式 */
+.script-section.data-v-53b51f20, .selected-script.data-v-53b51f20, .date-section.data-v-53b51f20, .sessions-section.data-v-53b51f20, .contact-section.data-v-53b51f20, .notice-section.data-v-53b51f20, .price-section.data-v-53b51f20 {
+	background: white;
+	margin: 20rpx;
+	border-radius: 20rpx;
+	padding: 30rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.section-title.data-v-53b51f20 {
+	margin-bottom: 30rpx;
+	padding-bottom: 20rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.title-text.data-v-53b51f20 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+/* 剧本选择 */
+.scripts-list.data-v-53b51f20 {
+	gap: 20rpx;
+}
+.script-item.data-v-53b51f20 {
+	display: flex;
+	align-items: center;
+	padding: 20rpx;
+	background: #f8f9fa;
+	border-radius: 15rpx;
+	margin-bottom: 20rpx;
+	transition: all 0.3s;
+}
+.script-item.data-v-53b51f20:last-child {
+	margin-bottom: 0;
+}
+.script-cover.data-v-53b51f20 {
+	width: 120rpx;
+	height: 80rpx;
+	border-radius: 10rpx;
+	margin-right: 20rpx;
+	object-fit: cover;
+}
+.script-info.data-v-53b51f20 {
+	flex: 1;
+}
+.script-name.data-v-53b51f20 {
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+	margin-bottom: 10rpx;
+}
+.script-meta.data-v-53b51f20 {
+	margin-bottom: 15rpx;
+}
+.meta-text.data-v-53b51f20 {
+	font-size: 24rpx;
+	color: #666;
+}
+.script-tags.data-v-53b51f20 {
+	display: flex;
+}
+.tag.data-v-53b51f20 {
+	background: #e3f2fd;
+	color: #1976d2;
+	font-size: 20rpx;
+	padding: 4rpx 10rpx;
+	border-radius: 10rpx;
+	margin-right: 10rpx;
+}
+.select-icon.data-v-53b51f20 {
+	font-size: 30rpx;
+	color: #999;
+}
+
+/* 已选剧本 */
+.script-card.data-v-53b51f20 {
+	display: flex;
+	align-items: center;
+}
+.change-script.data-v-53b51f20 {
+	background: #667eea;
+	color: white;
+	padding: 10rpx 20rpx;
+	border-radius: 15rpx;
+	font-size: 24rpx;
+}
+
+/* 日期选择 */
+.date-scroll.data-v-53b51f20 {
+	white-space: nowrap;
+}
+.date-list.data-v-53b51f20 {
+	display: flex;
+	gap: 20rpx;
+}
+.date-item.data-v-53b51f20 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20rpx;
+	background: #f8f9fa;
+	border-radius: 15rpx;
+	min-width: 100rpx;
+	transition: all 0.3s;
+}
+.date-item.active.data-v-53b51f20 {
+	background: #667eea;
+	color: white;
+}
+.date-weekday.data-v-53b51f20 {
+	font-size: 22rpx;
+	margin-bottom: 8rpx;
+}
+.date-day.data-v-53b51f20 {
+	font-size: 32rpx;
+	font-weight: bold;
+	margin-bottom: 8rpx;
+}
+.date-month.data-v-53b51f20 {
+	font-size: 20rpx;
+	opacity: 0.8;
+}
+
+/* 场次选择 */
+.sessions-list.data-v-53b51f20 {
+	gap: 20rpx;
+}
+.session-item.data-v-53b51f20 {
+	display: flex;
+	align-items: center;
+	padding: 25rpx;
+	background: #f8f9fa;
+	border-radius: 15rpx;
+	margin-bottom: 20rpx;
+	transition: all 0.3s;
+	border: 2rpx solid transparent;
+}
+.session-item.data-v-53b51f20:last-child {
+	margin-bottom: 0;
+}
+.session-item.active.data-v-53b51f20 {
+	background: #e3f2fd;
+	border-color: #667eea;
+}
+.session-item.disabled.data-v-53b51f20 {
+	opacity: 0.6;
+}
+.session-time.data-v-53b51f20 {
+	text-align: center;
+	margin-right: 30rpx;
+	min-width: 100rpx;
+}
+.time-text.data-v-53b51f20 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+}
+.time-period.data-v-53b51f20 {
+	font-size: 22rpx;
+	color: #999;
+}
+.session-info.data-v-53b51f20 {
+	flex: 1;
+}
+.session-players.data-v-53b51f20 {
+	font-size: 28rpx;
+	color: #333;
+	display: block;
+	margin-bottom: 8rpx;
+}
+.session-status.data-v-53b51f20 {
+	font-size: 24rpx;
+	color: #28a745;
+}
+.session-status.full.data-v-53b51f20 {
+	color: #ff6b6b;
+}
+.session-price.data-v-53b51f20 {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #667eea;
+}
+
+/* 表单样式 */
+.form-item.data-v-53b51f20 {
+	margin-bottom: 30rpx;
+}
+.form-label.data-v-53b51f20 {
+	font-size: 28rpx;
+	color: #333;
+	display: block;
+	margin-bottom: 15rpx;
+}
+.form-input.data-v-53b51f20 {
+	width: 100%;
+	padding: 25rpx;
+	background: #f8f9fa;
+	border-radius: 10rpx;
+	font-size: 28rpx;
+	border: 1rpx solid #e0e0e0;
+}
+.form-textarea.data-v-53b51f20 {
+	width: 100%;
+	height: 150rpx;
+	padding: 25rpx;
+	background: #f8f9fa;
+	border-radius: 10rpx;
+	font-size: 28rpx;
+	border: 1rpx solid #e0e0e0;
+	resize: none;
+}
+
+/* 须知内容 */
+.notice-content.data-v-53b51f20 {
+	gap: 15rpx;
+}
+.notice-item.data-v-53b51f20 {
+	margin-bottom: 15rpx;
+}
+.notice-text.data-v-53b51f20 {
+	font-size: 26rpx;
+	color: #666;
+	line-height: 1.6;
+}
+
+/* 价格明细 */
+.price-detail.data-v-53b51f20 {
+	gap: 20rpx;
+}
+.price-row.data-v-53b51f20 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20rpx 0;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.price-row.data-v-53b51f20:last-child {
+	border-bottom: none;
+}
+.price-row.total.data-v-53b51f20 {
+	border-top: 2rpx solid #e0e0e0;
+	padding-top: 25rpx;
+	margin-top: 15rpx;
+}
+.price-label.data-v-53b51f20 {
+	font-size: 28rpx;
+	color: #333;
+}
+.price-value.data-v-53b51f20 {
+	font-size: 28rpx;
+	color: #667eea;
+	font-weight: bold;
+}
+.total-price.data-v-53b51f20 {
+	font-size: 32rpx;
+	color: #ff6b6b;
+}
+.player-count.data-v-53b51f20 {
+	display: flex;
+	align-items: center;
+}
+.count-btn.data-v-53b51f20 {
+	width: 60rpx;
+	height: 60rpx;
+	background: #667eea;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 30rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.count-text.data-v-53b51f20 {
+	margin: 0 30rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333;
+	min-width: 60rpx;
+	text-align: center;
+}
+
+/* 底部确认栏 */
+.bottom-bar.data-v-53b51f20 {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: white;
+	padding: 20rpx 30rpx;
+	border-top: 1rpx solid #f0f0f0;
+	box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+	display: flex;
+	align-items: center;
+}
+.total-info.data-v-53b51f20 {
+	flex: 1;
+}
+.total-text.data-v-53b51f20 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #ff6b6b;
+}
+.confirm-btn.data-v-53b51f20 {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 25rpx 50rpx;
+	border-radius: 25rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+}
+

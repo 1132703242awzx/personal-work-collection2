@@ -1,0 +1,310 @@
+
+.page.data-v-57280228 {
+	background-color: #f8f9fa;
+	min-height: 100vh;
+	padding-top: 100rpx; /* 给自定义导航栏留空间 */
+}
+
+/* 自定义导航栏 */
+.custom-navbar.data-v-57280228 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	padding-top: 25px;
+}
+.navbar-content.data-v-57280228 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20rpx 30rpx;
+	height: 80rpx;
+}
+.navbar-title.data-v-57280228 {
+	color: white;
+	font-size: 36rpx;
+	font-weight: bold;
+}
+.navbar-icons.data-v-57280228 {
+	display: flex;
+	gap: 30rpx;
+}
+.navbar-icon.data-v-57280228 {
+	color: white;
+	font-size: 36rpx;
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 头部轮播图 */
+.header-section.data-v-57280228 {
+	position: relative;
+}
+.banner.data-v-57280228 {
+	height: 400rpx;
+}
+.banner-item.data-v-57280228 {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.banner-image.data-v-57280228 {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.banner-overlay.data-v-57280228 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+	padding: 60rpx 40rpx 40rpx;
+	color: white;
+}
+.banner-title.data-v-57280228 {
+	font-size: 48rpx;
+	font-weight: bold;
+	display: block;
+	margin-bottom: 10rpx;
+}
+.banner-subtitle.data-v-57280228 {
+	font-size: 28rpx;
+	opacity: 0.9;
+}
+
+/* 功能入口 */
+.function-section.data-v-57280228 {
+	background: white;
+	margin: 20rpx;
+	border-radius: 20rpx;
+	padding: 40rpx 20rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.function-grid.data-v-57280228 {
+	display: flex;
+	justify-content: space-around;
+}
+.function-item.data-v-57280228 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+}
+.function-icon.data-v-57280228 {
+	width: 100rpx;
+	height: 100rpx;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20rpx;
+	font-size: 40rpx;
+}
+.function-text.data-v-57280228 {
+	font-size: 26rpx;
+	color: #333;
+}
+
+/* 区域标题 */
+.section-header.data-v-57280228 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 30rpx;
+	margin-bottom: 20rpx;
+}
+.section-title.data-v-57280228 {
+	font-size: 36rpx;
+	font-weight: bold;
+	color: #333;
+}
+.section-more.data-v-57280228 {
+	font-size: 26rpx;
+	color: #999;
+}
+
+/* 热门推荐 */
+.recommend-section.data-v-57280228 {
+	margin: 40rpx 0;
+}
+.recommend-scroll.data-v-57280228 {
+	white-space: nowrap;
+}
+.recommend-list.data-v-57280228 {
+	display: flex;
+	padding: 0 20rpx;
+}
+.recommend-item.data-v-57280228 {
+	display: inline-block;
+	width: 280rpx;
+	background: white;
+	border-radius: 20rpx;
+	margin-right: 20rpx;
+	overflow: hidden;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.script-cover.data-v-57280228 {
+	width: 100%;
+	height: 200rpx;
+	object-fit: cover;
+}
+.script-info.data-v-57280228 {
+	padding: 20rpx;
+}
+.script-name.data-v-57280228 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+	margin-bottom: 15rpx;
+}
+.script-tags.data-v-57280228 {
+	margin-bottom: 15rpx;
+}
+.script-tag.data-v-57280228 {
+	display: inline-block;
+	background: #f0f0f0;
+	color: #666;
+	font-size: 22rpx;
+	padding: 4rpx 12rpx;
+	border-radius: 12rpx;
+	margin-right: 10rpx;
+}
+.script-meta.data-v-57280228 {
+	display: flex;
+	justify-content: space-between;
+	font-size: 24rpx;
+	color: #999;
+	margin-bottom: 15rpx;
+}
+.script-price.data-v-57280228 {
+	font-size: 28rpx;
+	color: #ff6b6b;
+	font-weight: bold;
+}
+
+/* 今日场次 */
+.today-section.data-v-57280228 {
+	margin: 40rpx 20rpx;
+}
+.today-list.data-v-57280228 {
+	background: white;
+	border-radius: 20rpx;
+	overflow: hidden;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.today-item.data-v-57280228 {
+	display: flex;
+	padding: 30rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+	align-items: center;
+}
+.today-item.data-v-57280228:last-child {
+	border-bottom: none;
+}
+.session-time.data-v-57280228 {
+	margin-right: 30rpx;
+	text-align: center;
+	min-width: 120rpx;
+}
+.time-hour.data-v-57280228 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+}
+.time-period.data-v-57280228 {
+	font-size: 22rpx;
+	color: #999;
+}
+.session-info.data-v-57280228 {
+	flex: 1;
+}
+.session-script.data-v-57280228 {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	display: block;
+	margin-bottom: 10rpx;
+}
+.session-players.data-v-57280228 {
+	font-size: 26rpx;
+	color: #666;
+	display: block;
+	margin-bottom: 15rpx;
+}
+.session-tags.data-v-57280228 {
+	display: flex;
+}
+.session-tag.data-v-57280228 {
+	font-size: 22rpx;
+	padding: 4rpx 12rpx;
+	border-radius: 12rpx;
+	margin-right: 10rpx;
+}
+.session-tag.difficulty.data-v-57280228 {
+	background: #e3f2fd;
+	color: #1976d2;
+}
+.session-tag.type.data-v-57280228 {
+	background: #f3e5f5;
+	color: #7b1fa2;
+}
+.session-action.data-v-57280228 {
+	text-align: center;
+	min-width: 120rpx;
+}
+.session-price.data-v-57280228 {
+	font-size: 28rpx;
+	color: #ff6b6b;
+	font-weight: bold;
+	display: block;
+	margin-bottom: 15rpx;
+}
+.reserve-btn.data-v-57280228 {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 12rpx 24rpx;
+	border-radius: 20rpx;
+	font-size: 26rpx;
+}
+.reserve-btn.disabled.data-v-57280228 {
+	background: #ccc;
+}
+
+/* 店铺信息 */
+.store-section.data-v-57280228 {
+	margin: 40rpx 20rpx;
+	background: white;
+	border-radius: 20rpx;
+	padding: 40rpx 30rpx;
+	box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+.store-info.data-v-57280228 {
+	margin-top: 20rpx;
+}
+.store-item.data-v-57280228 {
+	display: flex;
+	justify-content: space-between;
+	padding: 20rpx 0;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+.store-item.data-v-57280228:last-child {
+	border-bottom: none;
+}
+.store-label.data-v-57280228 {
+	font-size: 28rpx;
+	color: #666;
+}
+.store-value.data-v-57280228 {
+	font-size: 28rpx;
+	color: #333;
+}
+

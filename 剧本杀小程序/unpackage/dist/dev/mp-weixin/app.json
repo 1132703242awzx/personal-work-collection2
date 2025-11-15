@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/scripts/scripts",
+    "pages/script-detail/script-detail",
+    "pages/reservation/reservation",
+    "pages/orders/orders",
+    "pages/profile/profile"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "剧本杀",
+    "navigationBarBackgroundColor": "#667eea",
+    "backgroundColor": "#f8f9fa"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#667eea",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tab-home.png",
+        "selectedIconPath": "static/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/scripts/scripts",
+        "text": "剧本",
+        "iconPath": "static/tab-script.png",
+        "selectedIconPath": "static/tab-script-active.png"
+      },
+      {
+        "pagePath": "pages/orders/orders",
+        "text": "预约",
+        "iconPath": "static/tab-order.png",
+        "selectedIconPath": "static/tab-order-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "static/tab-profile.png",
+        "selectedIconPath": "static/tab-profile-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于为您推荐附近的剧本杀店铺"
+    }
+  },
+  "requiredBackgroundModes": [],
+  "plugins": {},
+  "resizable": true,
+  "usingComponents": {}
+}

@@ -1,0 +1,81 @@
+<script>
+	export default {
+		onLaunch: function() {
+			console.log('App Launch')
+		},
+		onShow: function() {
+			console.log('App Show')
+		},
+		onHide: function() {
+			console.log('App Hide')
+		}
+	}
+</script>
+
+<style>
+	/* 每个页面公共css */
+	page {
+		background-color: #f8f9fa;
+	}
+	
+	/* 全局字体 */
+	.container {
+		font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+	}
+	
+	/* 全局按钮样式 */
+	.btn-primary {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		border: none;
+		border-radius: 25rpx;
+		padding: 25rpx 50rpx;
+		font-size: 30rpx;
+	}
+	
+	.btn-secondary {
+		background: #f8f9fa;
+		color: #6c757d;
+		border: 2rpx solid #dee2e6;
+		border-radius: 25rpx;
+		padding: 25rpx 50rpx;
+		font-size: 30rpx;
+	}
+	
+	/* 卡片样式 */
+	.card {
+		background: white;
+		border-radius: 20rpx;
+		box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+		overflow: hidden;
+	}
+	
+	/* 间距类 */
+	.m-10 { margin: 20rpx; }
+	.m-15 { margin: 30rpx; }
+	.m-20 { margin: 40rpx; }
+	.mt-10 { margin-top: 20rpx; }
+	.mt-15 { margin-top: 30rpx; }
+	.mt-20 { margin-top: 40rpx; }
+	.mb-10 { margin-bottom: 20rpx; }
+	.mb-15 { margin-bottom: 30rpx; }
+	.mb-20 { margin-bottom: 40rpx; }
+	.p-10 { padding: 20rpx; }
+	.p-15 { padding: 30rpx; }
+	.p-20 { padding: 40rpx; }
+	
+	/* 文字颜色 */
+	.text-primary { color: #667eea; }
+	.text-secondary { color: #6c757d; }
+	.text-success { color: #28a745; }
+	.text-danger { color: #dc3545; }
+	.text-warning { color: #ffc107; }
+	.text-muted { color: #999; }
+	
+	/* 字体大小 */
+	.text-xs { font-size: 22rpx; }
+	.text-sm { font-size: 26rpx; }
+	.text-base { font-size: 30rpx; }
+	.text-lg { font-size: 36rpx; }
+	.text-xl { font-size: 42rpx; }
+</style>
